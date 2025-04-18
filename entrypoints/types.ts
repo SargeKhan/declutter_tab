@@ -1,7 +1,15 @@
+export interface Tab {
+  id: number
+  title: string
+  url: string
+  favIconUrl: string
+}
+
 export enum MessageType {
     clickExtIcon = "clickExtIcon",
     changeTheme = "changeTheme",
-    changeLocale = "changeLocale"
+    changeLocale = "changeLocale",
+    switchAndClose = "switchAndClose"
 }
 
 export enum MessageFrom {
@@ -14,6 +22,8 @@ export enum MessageFrom {
 class ExtMessage {
     content?: string;
     from?: MessageFrom;
+    currentTab?: Tab;
+    switchToTab?: Tab
 
     constructor(messageType: MessageType) {
         this.messageType = messageType;
